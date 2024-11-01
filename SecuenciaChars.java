@@ -7,7 +7,7 @@ public class SecuenciaChars {
      * Implementacion que define si los parentesis están balanceados o no.
      * @param lista es la lista que queremos chequear.
      */
-    public void verificarSecuencia(String cadena) {
+    public String verificarSecuencia(String cadena) {
         if (cadena.equals(null)) {
             throw new IllegalArgumentException("Cadena nula");
         }
@@ -16,29 +16,28 @@ public class SecuenciaChars {
         char[] charArray = cadena.toCharArray();//Convierto la lista a un arreglo de caracteres.
         
         for (int i = 0; i < charArray.length; i++) {
+           if (charArray[i] == ')' && stackList.isEmpty()) {
+                return "" + "No está balanceado";
+           }
            if (charArray[i] == '(') {
                 stackList.push("(");
-           } else if (charArray[i] == ')' && stackList.size() >= 1) {
+           }
+           if (charArray[i] == ')' && !stackList.isEmpty()) {
                 stackList.pop();
            }
         }
         if (stackList.isEmpty()){//Si el stack está vacio entonces indica que está balanceado
-            System.out.println("Está balanceado.");
+            return "" + "Está balanceado";
         } else {
-            System.out.println("No está balanceado.");
+            return "" + "No está balanceado";
         }
     }
 
-    /**
-     * Con el main busco recibir la cadena de caracteres.
-     * @param args es la entrada que recibe desde la consola.
-     */
     public static void main(String[] args) {
-        SecuenciaChars verSec = new SecuenciaChars();
-        Scanner sc = new Scanner(System.in);
-        String word = sc.nextLine();//Leemos la entrada por consola
-        sc.close();
-        verSec.verificarSecuencia(word);     
+        SecuenciaChars sec = new SecuenciaChars();
+        System.out.println(sec.verificarSecuencia("()"));
+        System.out.println(sec.verificarSecuencia(")("));
+        System.out.println(sec.verificarSecuencia(")()"));
     }
 
 }
