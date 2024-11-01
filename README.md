@@ -30,6 +30,27 @@ Estas cuentan con métodos como:
 - `Ver si la pila es vacía`
 - `Vaciar la pila`
 - `Imprimir la pila`
+## Funcionalidades como verificar paréntesis
+Con las clases desarrolladas en este repositorio aplicamos una nueva clase que verifica si en una expresión del tipo `"(4 + 3) * 15"` o `") 4 + 3 ( * 15"`, los paréntesis se encuentran bien balanceados, es decir que cada paréntesis de apertura tiene su cierre y está en la posicion correcta.
+
+Una secuencia con:
+```
+ (4 + 3) * 15 => //retorna que está bien balanceado.
+```
+En cambio una secuencia con:
+```
+) 4 + 3 ( * 15 => //retorna que no está bien balanceado.
+) 4 + (3 * 15) => //retorna que no está bien balanceado.
+```
+### ¿Que clases contienen estas implementaciones?
+Estas son:
+- `SecuenciaChars`
+    - Esta está implementada en base a una libreria llamada Stack y está en el paquete `java.util`.
+- `SecuenciaCharsArreglo`
+    - Esta está implementada en base a la clase llamada `PilaListaArreglo`.
+- `SecuenciaCharsEnlazada`
+    - Esta está implementada en base a la clase llamada `PilaListaEnlazada`
+
 ## Como usar estas implementaciones
 Lo primero es clonar este repositorio en nuestra maquina a través de la terminal con:
 ```
