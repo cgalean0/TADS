@@ -20,7 +20,7 @@ Este TAD contiene métodos como:
 - `Imprimir la lista`
 
 
-## Métodos de las pilas
+## Métodos de las pilas (LIFO)
 
 Las pilas funcionan en base a las dos clases anteriormente mencionadas.
 Estas cuentan con métodos como:
@@ -30,6 +30,16 @@ Estas cuentan con métodos como:
 - `Ver si la pila es vacía`
 - `Vaciar la pila`
 - `Imprimir la pila`
+## TADS cola (FIFO)
+Esta implementacion se ve mejor con un ejemplo como el de la cola de un banco, el primero en llegar será el primero en salir, estas funcionalidades las encontamos en las clases `ColaEnlazada`,`ColaArreglo`,`ColaCircular`.
+
+Si bien `ColaArreglo` y `ColaEnlazada` son implementaciones buenas, la de mejor eficiencia es la `ColaCircular` ya que para insertar elementos manejamos solo indices y no hay necesidad de mover los elementos de lugar como en las demás colas.
+
+### Algunos métodos de las colas son:
+- `Encolar`
+- `Desencolar`
+- `Vaciar`
+- `esVacia`
 ## Funcionalidades como verificar paréntesis
 Con las clases desarrolladas en este repositorio aplicamos una nueva clase que verifica si en una expresión del tipo `"(4 + 3) * 15"` o `") 4 + 3 ( * 15"`, los paréntesis se encuentran bien balanceados, es decir que cada paréntesis de apertura tiene su cierre y está en la posicion correcta.
 
@@ -50,7 +60,6 @@ Estas son:
     - Esta está implementada en base a la clase llamada `PilaListaArreglo`.
 - `SecuenciaCharsEnlazada`
     - Esta está implementada en base a la clase llamada `PilaListaEnlazada`
-
 ## Como usar estas implementaciones
 Lo primero es clonar este repositorio en nuestra maquina a través de la terminal con:
 ```
