@@ -21,6 +21,7 @@ public class ColaCircular<T> implements Cola<T>{
      */
     @Override
     public void enconlar(T item) {
+        if (contador == capMax - 1) throw new IllegalStateException("La cola está llena, debe liberar espacio desencolando un elemento.");
         array[(fin % capMax)] = item;
         contador++;
         if (fin < capMax) {
@@ -35,6 +36,8 @@ public class ColaCircular<T> implements Cola<T>{
      */
     @Override
     public T desencolar() {
+        if (contador <= 0) throw new IllegalStateException("La cola ya se encuentra vacía");
+
         T elem = array[inicio % capMax];
         contador--;
         if (inicio < capMax) {
@@ -56,6 +59,7 @@ public class ColaCircular<T> implements Cola<T>{
      */
     @Override
     public void vaciar() {
+        if (contador <= 0) throw new IllegalStateException("La cola ya está vacía");
         while (contador != 0) {
             desencolar();
         }
